@@ -1,7 +1,5 @@
 // Assignment of Section 3
 
-import * as http from 'http'
-
 const requestHandler = (req, res) => {
   const url = req.url
   const method = req.method

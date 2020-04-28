@@ -1,4 +1,3 @@
-import * as http from 'http'
 import * as fs from 'fs'
 
 const requestHandler = (req, res) => {
