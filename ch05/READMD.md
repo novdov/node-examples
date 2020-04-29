@@ -4,3 +4,6 @@
 ```bash
 npm install express --save
 ```
+
+### Modulalize files in Express.js
+- Use `express.Router` and export router
