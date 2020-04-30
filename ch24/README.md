@@ -16,14 +16,14 @@
   - When share resources between serve/client which run on difference domain
   - To solve, server-side manipulation is required (NOT in client!)
 
-  ```javascript
-  app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PsATCH, DELETE')
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  })
-  next()
-  ```
+```javascript
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PsATCH, DELETE')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+})
+next()
+```
 
 ### Sending POST request (in JS)
 
