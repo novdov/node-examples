@@ -10,6 +10,7 @@ const app = express()
 
 // We should ues `body-parser` like this in express 4
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 // Admin router
 // add segment. Url only starts with admin will be handled by adminRouter
