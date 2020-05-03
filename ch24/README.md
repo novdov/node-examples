@@ -1,5 +1,7 @@
 ## Section 24: Working with REST APIs - The Basics
 
+- Frontend: https://github.com/novdov/node-social-app
+
 ### How to run (with babel)
 ```bash
 npx nodemon --exec babel-node app.js
