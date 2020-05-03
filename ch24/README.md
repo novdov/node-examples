@@ -1,5 +1,10 @@
 ## Section 24: Working with REST APIs - The Basics
 
+### How to run (with babel)
+```bash
+npx nodemon --exec babel-node app.js
+```
+
 ### Http Methods
 
 - `GET`: Get a resource from the server
