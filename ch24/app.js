@@ -5,6 +5,7 @@ import * as bodyParser from 'body-parser'
 import multer from 'multer'
 
 const feedRouter = require('./routes/feed')
+const authRouter = require('./routes/auth')
 
 const app = express()
 const fileStorage = multer.diskStorage({
@@ -31,7 +32,7 @@ app.use(bodyParser.json())
 app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'))
 app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use((req, res, next) => {
-  // Handle CORSS Error
+  // Handle CORS Error
   // Allow frontend send request to server
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE')
@@ -41,12 +42,14 @@ app.use((req, res, next) => {
 
 // GET /feed/posts
 app.use('/feed', feedRouter)
+app.use('/auth', authRouter)
 app.use((error, req, res, next) => {
   console.log(error)
   // 500 if undefined error
   const statusCode = error.statusCode || 500
   const message = error.message
-  res.status(statusCode).json({ message: message })
+  const data = error.data
+  res.status(statusCode).json({ message: message, data: data })
 })
 
 mongoose.connect(
